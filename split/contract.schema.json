@@ -1,0 +1,80 @@
+{
+  "type": "object",
+  "properties": {
+    "result": {
+      "type": "object",
+      "properties": {
+        "issue": {
+          "type": "integer"
+        },
+        "label": {
+          "enum": [
+            "bug",
+            "docs",
+            "question",
+            "feature",
+            null
+          ],
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "file": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "issue",
+        "label",
+        "file",
+        "evidence"
+      ],
+      "additionalProperties": false
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "found",
+        "candidate",
+        "out_of_budget"
+      ]
+    },
+    "searched": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "not_searched": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "calls_used": {
+      "type": "integer"
+    },
+    "could_not_determine": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "result",
+    "status",
+    "searched",
+    "not_searched",
+    "calls_used",
+    "could_not_determine"
+  ],
+  "additionalProperties": false
+}
