@@ -28,3 +28,9 @@ Removals are logged like additions.
 - **Removed:** autonomous merge; pushes to a protected branch
 - **Constrained:** push_commit and post_comment by circumstance; every gated call to a person's answer, and no answer to a hold
 
+
+## Assignment 6
+
+- **Added** — nothing.
+- **Removed** — nothing.
+- **Constrained** — multi-agent decomposition was measured against one agent on a separate, unmerged branch. The decision and reopening condition are in `decisions/0006-topology.md`.

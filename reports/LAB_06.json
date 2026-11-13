@@ -1,23 +1,243 @@
 {
-  "gates": {"daily": ["fail", "not_reached", "not_reached", "not_reached"], "batch": ["pass", "pass", "pass", "pass"]},
-  "constants": {"model": null, "schemas_sha": null, "checks_sha": null, "reviewer": null, "task_ids": []},
-  "arms": {
-    "S": {"single": {"runs": 0, "passes": 0, "per_task": {}, "sweep_min": null, "sweep_max": null, "all_three": 0,
-                     "mean_tokens": null, "mean_wall_s": null},
-          "batch": {"runs": 0, "passes": 0, "per_task": {}, "sweep_min": null, "sweep_max": null, "all_three": 0,
-                    "mean_tokens": null, "mean_wall_s": null}},
-    "M": {"single": {"runs": 0, "passes": 0, "per_task": {}, "sweep_min": null, "sweep_max": null, "all_three": 0,
-                     "mean_tokens": null, "mean_wall_s": null},
-          "batch": {"runs": 0, "passes": 0, "per_task": {}, "sweep_min": null, "sweep_max": null, "all_three": 0,
-                    "mean_tokens": null, "mean_wall_s": null}},
-    "S_plus": {"single": {"runs": 0, "passes": 0, "per_task": {}, "sweep_min": null, "sweep_max": null, "all_three": 0,
-                          "mean_tokens": null, "mean_wall_s": null},
-               "batch": {"runs": 0, "passes": 0, "per_task": {}, "sweep_min": null, "sweep_max": null, "all_three": 0,
-                         "mean_tokens": null, "mean_wall_s": null}}
+  "gates": {
+    "daily": [
+      "fail",
+      "not_reached",
+      "not_reached",
+      "not_reached"
+    ],
+    "batch": [
+      "pass",
+      "pass",
+      "pass",
+      "pass"
+    ]
   },
-  "multiplier": {"single": null, "batch": null},
-  "spend_check": {"single": {"spent_more": null, "spend_raises_score": null, "one_agent_as_well": null},
-                  "batch": {"spent_more": null, "spend_raises_score": null, "one_agent_as_well": null}},
-  "failures": [],
-  "decision": {"single": null, "batch": null, "revisit_condition": null}
+  "constants": {
+    "model": "gemini-3.5-flash-lite",
+    "schemas_sha": "703c0002892f27ec",
+    "checks_sha": "55abcd67e6a3b208",
+    "reviewer": "scripted:approve-all",
+    "task_ids": [
+      "batch-a",
+      "batch-b",
+      "one-4402",
+      "one-4403",
+      "one-4405",
+      "one-4406",
+      "one-4409",
+      "one-4413"
+    ]
+  },
+  "arms": {
+    "S": {
+      "single": {
+        "runs": 18,
+        "passes": 12,
+        "per_task": {
+          "one-4402": 1,
+          "one-4403": 3,
+          "one-4405": 2,
+          "one-4406": 1,
+          "one-4409": 2,
+          "one-4413": 3
+        },
+        "sweep_min": 3,
+        "sweep_max": 6,
+        "all_three": 2,
+        "mean_tokens": 54826,
+        "mean_wall_s": 7.7
+      },
+      "batch": {
+        "runs": 6,
+        "passes": 2,
+        "per_task": {
+          "batch-a": 0,
+          "batch-b": 2
+        },
+        "sweep_min": 0,
+        "sweep_max": 1,
+        "all_three": 0,
+        "mean_tokens": 325985,
+        "mean_wall_s": 30.0
+      }
+    },
+    "M": {
+      "single": {
+        "runs": 18,
+        "passes": 6,
+        "per_task": {
+          "one-4402": 0,
+          "one-4403": 0,
+          "one-4405": 1,
+          "one-4406": 3,
+          "one-4409": 2,
+          "one-4413": 0
+        },
+        "sweep_min": 1,
+        "sweep_max": 3,
+        "all_three": 1,
+        "mean_tokens": 36731,
+        "mean_wall_s": 9.4
+      },
+      "batch": {
+        "runs": 6,
+        "passes": 0,
+        "per_task": {
+          "batch-a": 0,
+          "batch-b": 0
+        },
+        "sweep_min": 0,
+        "sweep_max": 0,
+        "all_three": 0,
+        "mean_tokens": 139998,
+        "mean_wall_s": 11.3
+      }
+    },
+    "S_plus": {
+      "single": {
+        "runs": 18,
+        "passes": 8,
+        "per_task": {
+          "one-4402": 0,
+          "one-4403": 1,
+          "one-4405": 1,
+          "one-4406": 3,
+          "one-4409": 3,
+          "one-4413": 0
+        },
+        "sweep_min": 2,
+        "sweep_max": 4,
+        "all_three": 2,
+        "mean_tokens": 35750,
+        "mean_wall_s": 9.5
+      },
+      "batch": {
+        "runs": 6,
+        "passes": 0,
+        "per_task": {
+          "batch-a": 0,
+          "batch-b": 0
+        },
+        "sweep_min": 0,
+        "sweep_max": 0,
+        "all_three": 0,
+        "mean_tokens": 139110,
+        "mean_wall_s": 37.7
+      }
+    }
+  },
+  "multiplier": {
+    "single": 0.67,
+    "batch": 0.429
+  },
+  "spend_check": {
+    "single": {
+      "spent_more": "no",
+      "spend_raises_score": "yes",
+      "one_agent_as_well": "yes"
+    },
+    "batch": {
+      "spent_more": "no",
+      "spend_raises_score": "yes",
+      "one_agent_as_well": "yes"
+    }
+  },
+  "failures": [
+    {
+      "run_id": "split-batch-a-s01-5170e4",
+      "anomaly": "none",
+      "mast": "system_design"
+    },
+    {
+      "run_id": "split-batch-a-s02-f6cb79",
+      "anomaly": "none",
+      "mast": "system_design"
+    },
+    {
+      "run_id": "split-batch-a-s03-ad7677",
+      "anomaly": "none",
+      "mast": "system_design"
+    },
+    {
+      "run_id": "split-batch-b-s01-65e0db",
+      "anomaly": "none",
+      "mast": "system_design"
+    },
+    {
+      "run_id": "split-batch-b-s02-a036c4",
+      "anomaly": "none",
+      "mast": "system_design"
+    },
+    {
+      "run_id": "split-batch-b-s03-b0b54e",
+      "anomaly": "none",
+      "mast": "system_design"
+    },
+    {
+      "run_id": "split-one-4402-s01-ce3918",
+      "anomaly": "none",
+      "mast": "system_design"
+    },
+    {
+      "run_id": "split-one-4402-s02-f5eaba",
+      "anomaly": "none",
+      "mast": "system_design"
+    },
+    {
+      "run_id": "split-one-4402-s03-163d7f",
+      "anomaly": "none",
+      "mast": "system_design"
+    },
+    {
+      "run_id": "split-one-4403-s01-4f500e",
+      "anomaly": "none",
+      "mast": "system_design"
+    },
+    {
+      "run_id": "split-one-4403-s02-bb634b",
+      "anomaly": "none",
+      "mast": "system_design"
+    },
+    {
+      "run_id": "split-one-4403-s03-cddeb3",
+      "anomaly": "none",
+      "mast": "task_verification"
+    },
+    {
+      "run_id": "split-one-4405-s02-38f227",
+      "anomaly": "none",
+      "mast": "task_verification"
+    },
+    {
+      "run_id": "split-one-4405-s03-e94475",
+      "anomaly": "none",
+      "mast": "system_design"
+    },
+    {
+      "run_id": "split-one-4409-s02-8c945f",
+      "anomaly": "none",
+      "mast": "system_design"
+    },
+    {
+      "run_id": "split-one-4413-s01-a75095",
+      "anomaly": "none",
+      "mast": "system_design"
+    },
+    {
+      "run_id": "split-one-4413-s02-ebcb11",
+      "anomaly": "none",
+      "mast": "system_design"
+    },
+    {
+      "run_id": "split-one-4413-s03-5d1b55",
+      "anomaly": "none",
+      "mast": "system_design"
+    }
+  ],
+  "decision": {
+    "single": "single",
+    "batch": "single",
+    "revisit_condition": "On a fresh set of independent five-issue batches with issue-level checks, repeat three sweeps at matched actual spend. Reconsider a batch split if it completes at least as many whole batches as the deployed single-agent baseline, completes at least one whole batch, and reduces mean elapsed time by at least 25%. For single issues, reopen if a split beats the single agent on grounded passes at matched spend."
+  }
 }
